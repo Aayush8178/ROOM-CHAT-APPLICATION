@@ -1,0 +1,30 @@
+[User Enters Room ID & UserID]
+        |
+        ↓
+[roomidinput.tsx]
+    ⇨ Sends "join" msg to server
+        |
+        ↓
+[Server (index.ts)]
+    ⇨ Stores socket + RoomID + UserID
+        |
+        ↓
+[User Types Message]
+        |
+        ↓
+[inputmessage.tsx]
+    ⇨ Sends "chat" msg to server
+        |
+        ↓
+[Server (index.ts)]
+    ⇨ Broadcasts msg to others in room
+        |
+        ↓
+[App.tsx]
+    ⇨ Receives msg via ws.onmessage
+        |
+        ↓
+    ⇨ Adds to `messages[]`
+        |
+        ↓
+    ⇨ Renders user + message on screen
